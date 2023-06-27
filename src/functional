@@ -1,8 +1,4 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-function Login() {
-  
-  const [username, setUsername] = useState('');
+const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -26,12 +22,20 @@ function Login() {
         "password" : password
       }
      );
+    
       // Check if the login was successful
       if (response.status === 200) {
+        let response_Data = {
+          "user": response.data.user,
+          "accessKey": response.data.accessKey,
+          "role": response.data.role
+         };
+         console.log(response_Data);
         setLoggedIn(true);
+        
         alert('Login successful!');
       } else {
-        alert('Invalid username or password');
+        alert('Invalid username or password'); 
       }
     } catch (error) {
       console.log('Error during login:', error);
@@ -68,6 +72,3 @@ function Login() {
     </form>
   </div>
   );
-}
-
-export default Login

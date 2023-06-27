@@ -1,6 +1,6 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 .App {
-  text-align: right;
+  text-align: center;
 }
 
 .App-logo {
@@ -37,3 +37,8 @@
     transform: rotate(360deg);
   }
 }
+
+.errmsg {
+  color: red;
+}
+
